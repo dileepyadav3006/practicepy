@@ -1,0 +1,98 @@
+import datetime
+import time
+ts=datetime.datetime.now()
+c_date=ts.strftime('%x')
+c_time=ts.strftime('%X')
+Day=ts.strftime('%A')
+Time=c_date+"  "+c_time+"  "+Day
+
+
+
+def w_diet(name):
+    with open(f"{name}diet.txt","a") as f:
+        dt = input("Enter the diet: ")
+
+        f.write(str(Time)+"\n"+dt+"\n")
+def w_exer(name):
+    with open(f"{name}exer.txt","a") as f:
+        ex = input("Enter the Excersize: ")
+
+        f.write(str(Time)+"\n"+ex+"\n")
+def r_diet(name):
+    with open(f"{name}diet.txt","r") as f:
+        file=f.read()
+        return file
+def r_exer(name):
+    with open(f"{name}exer.txt","r") as f:
+        file=f.read()
+        return file
+
+if __name__=='__main__':
+
+
+   
+    while True:
+        print("Kindly Enter the desired Option")
+        print("Press 1 for Akash \nPress 2 for Sumit \nPress 3 for Rishabh ")
+        name=int(input("Enter the Choice: "))
+
+        print("Press 1 for Diet \nPress 2 for Excercise")
+        treat=int(input("Enter Your Choice"))
+
+        print("What do you want to do of Selected Patient \nPress 1 for Lock Data \nPress 2 to retrieve details")
+        act=int(input("Enter the Choice: "))
+    
+        if name==1:
+            name = "akash"
+            if treat==1:
+                if act==1:
+                    w_diet(name)
+                elif act==2:
+                    data=r_diet(name)
+                    print(data)
+            elif treat == 2:
+                if act==1:
+                    w_exer(name)
+                elif act==2:
+                    data=r_exer(name)
+                    print(data)
+        if name==2:
+            name = "sumit"
+            if treat==1:
+                if act==1:
+                    w_diet(name)
+                elif act==2:
+                    data=r_diet(name)
+                    print(data)
+            elif treat == 2:
+                if act==1:
+                    w_exer(name)
+                elif act==2:
+                    data=r_exer(name)
+                    print(data)
+
+        if name==3:
+            name = "rishabh"
+            if treat==1:
+                if act==1:
+                    w_diet(name)
+                elif act==2:
+                    data=r_diet(name)
+                    print(data)
+            elif treat == 2:
+                if act==1:
+                    w_exer(name)
+                    
+                    
+                elif act==2:
+                    data=r_exer(name)
+                    print(data)
+            
+                    
+        print("Do you want to Continue? Press 0 for exit or Press 1 for Continue")          
+        choice=int(input("Enter Choice: "))
+        if choice==0:
+            flag=False
+            break
+        if choice==1:
+            continue
